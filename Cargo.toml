@@ -1,0 +1,25 @@
+[package]
+name = "gcores-best-radio"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+lto = true
+strip = true
+panic = "abort"
+codegen-units = 1
+
+[dependencies]
+anyhow = "*"
+tracing = "*"
+tracing-subscriber = "*"
+tokio = { version = "*", features = ["full"] }
+reqwest = { version = "*", default-features = false, features = [
+  "json",
+  "rustls-tls",
+] }
+serde = { version = "*", features = ["derive"] }
+serde_json = "*"
+rayon = "*"
+futures = "*"
+csv = "*"
