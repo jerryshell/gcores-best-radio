@@ -1,6 +1,6 @@
 # GCORES Radio 机核电台数据采集
 
-采集结果：[data.csv](data.csv)
+采集结果（已经根据收藏量倒序排序）：[data.csv](data.csv)
 
 ## 开源协议
 

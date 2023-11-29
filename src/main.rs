@@ -48,5 +48,12 @@ async fn main() {
         tokio::time::sleep(std::time::Duration::from_secs(1)).await;
     }
 
+    result.sort_by(|a, b| {
+        b.attributes
+            .bookmarks_count
+            .as_i64()
+            .unwrap_or(0)
+            .cmp(&a.attributes.bookmarks_count.as_i64().unwrap_or(0))
+    });
     write_to_csv(&result).unwrap();
 }
