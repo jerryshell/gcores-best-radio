@@ -2,10 +2,8 @@ use gcores_best_radio::{model::response_root::ResponseRoot, write_to_csv};
 
 #[tokio::main]
 async fn main() {
-    // init tracing
     tracing_subscriber::fmt::init();
 
-    // init client
     let client = reqwest::Client::builder().build().unwrap();
 
     let mut result = vec![];
@@ -44,7 +42,7 @@ async fn main() {
             snapshot_countdown = snapshot_coutdown_init;
         }
 
-        tokio::time::sleep(std::time::Duration::from_millis(500)).await;
+        tokio::time::sleep(std::time::Duration::from_millis(100)).await;
     }
 
     tracing::info!("sort_by...");
