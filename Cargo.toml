@@ -1,13 +1,7 @@
 [package]
 name = "gcores-best-radio"
 version = "0.1.0"
-edition = "2021"
-
-[profile.release]
-lto = true
-strip = true
-panic = "abort"
-codegen-units = 1
+edition = "2024"
 
 [dependencies]
 anyhow = "*"
@@ -23,3 +17,9 @@ serde_json = "*"
 rayon = "*"
 futures = "*"
 csv = "*"
+
+[profile.release]
+lto = true
+strip = true
+panic = "abort"
+codegen-units = 1
