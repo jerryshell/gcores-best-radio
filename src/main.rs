@@ -11,8 +11,8 @@ async fn main() {
     let page_limit = 100;
     let mut page_offset = 0;
 
-    let snapshot_coutdown_init = 10;
-    let mut snapshot_countdown = snapshot_coutdown_init;
+    let snapshot_countdown_init = 10;
+    let mut snapshot_countdown = snapshot_countdown_init;
 
     loop {
         let url = format!(
@@ -41,7 +41,7 @@ async fn main() {
         snapshot_countdown -= 1;
         if snapshot_countdown <= 0 {
             write_to_csv(&result).unwrap();
-            snapshot_countdown = snapshot_coutdown_init;
+            snapshot_countdown = snapshot_countdown_init;
         }
 
         tokio::time::sleep(std::time::Duration::from_millis(100)).await;
