@@ -2,7 +2,7 @@ pub mod model;
 
 use anyhow::Result;
 
-pub fn write_to_csv(data_list: &[crate::model::response_root::Datum]) -> Result<()> {
+pub fn write_to_csv(data_list: &[crate::model::Datum]) -> Result<()> {
     let mut csv_writer = csv::Writer::from_path("data.csv")?;
 
     csv_writer.write_record([

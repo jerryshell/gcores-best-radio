@@ -1,4 +1,4 @@
-use gcores_best_radio::{model::response_root::ResponseRoot, write_to_csv};
+use gcores_best_radio::{model::ResponseRoot, write_to_csv};
 
 #[tokio::main]
 async fn main() {
@@ -8,7 +8,7 @@ async fn main() {
 
     let mut result = vec![];
 
-    let page_limit = 12;
+    let page_limit = 100;
     let mut page_offset = 0;
 
     let snapshot_coutdown_init = 10;
