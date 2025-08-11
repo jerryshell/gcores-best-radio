@@ -1,3 +1,8 @@
+use std::{
+    fs::File,
+    io::{BufWriter, Write},
+};
+
 use gcores_best_radio::{model::ResponseRoot, write_to_csv};
 
 #[tokio::main]
@@ -56,8 +61,15 @@ async fn main() {
             .cmp(&a.attributes.bookmarks_count.as_i64().unwrap_or(0))
     });
 
-    tracing::info!("write_to_csv...");
+    tracing::info!("write to csv file...");
     write_to_csv(&result).unwrap();
+
+    // write to json
+    tracing::info!("write to json file...");
+    let json_file = File::create("data.json").unwrap();
+    let mut json_writer = BufWriter::new(json_file);
+    serde_json::to_writer(&mut json_writer, &result).unwrap();
+    json_writer.flush().unwrap();
 
     tracing::info!("finished");
 }
